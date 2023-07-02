@@ -19,11 +19,11 @@ window.addEventListener('DOMContentLoaded', async function () {
 
 
 	async function getfiles() {
-		const g = await fetch("/guesses.txt");
+		const g = await fetch("guesses.txt");
 		var guesses = await g.text()
 		window.guesses = await guesses.split("\n");
 
-		const a = await fetch("/ans.txt");
+		const a = await fetch("ans.txt");
 		var ans = await a.text()
 		window.ans = await ans.split("\n");
 		}
