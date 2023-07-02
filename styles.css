@@ -1,0 +1,67 @@
+/* Existing CSS code */
+
+#keyboard-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.keyboard-letter {
+	padding: 8px 12px;
+	font-size: 16px;
+	margin: 5px;
+	cursor: pointer;
+}
+
+.keyboard-letter.used {
+	background-color: #ccc;
+	cursor: default;
+}
+
+/* Existing CSS code */
+body {
+	font-family: Arial, sans-serif;
+	text-align: center;
+}
+
+.wordle-container {
+	margin-top: 50px;
+}
+
+.word-display {
+	display: inline;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.letter {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border: 1px solid #000;
+	margin: 0 5px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 30px;
+}
+
+input[type="text"] {
+	margin-top:20px;
+	padding: 5px 10px;
+	font-size: 16px;
+}
+
+button {
+	margin-top:20px;
+	padding: 8px 16px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.word-row{
+	width:100%;
+	vertical-align: middle;
+}
+
