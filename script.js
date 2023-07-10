@@ -14,8 +14,14 @@ window.addEventListener('DOMContentLoaded', async function () {
 	if (!document.cookie){
 		document.cookie=0;
 	}
-	console.log(document.cookie);
-	document.getElementById("level").textContent+=document.cookie;
+	
+	if (document.cookie.includes("=")) {
+		cookie = document.cookie.slice(0,-1);
+	} else {
+		cookie = document.cookie;
+	}
+
+	document.getElementById("level").textContent+=cookie;
 
 
 	async function getfiles() {
@@ -31,7 +37,7 @@ window.addEventListener('DOMContentLoaded', async function () {
 
 	await getfiles();
 
-	const word = await ans[document.cookie].toUpperCase();
+	const word = await ans[cookie].toUpperCase();
 
 	function createNewRow() {
 		const newRow = document.createElement('div');
@@ -78,9 +84,9 @@ window.addEventListener('DOMContentLoaded', async function () {
 
 		if (guess === word) {
 			alert('Congratulations! You guessed the word in ' + attempts + ' attempts.');
-			hello = parseInt(document.cookie);
+			hello = parseInt(cookie);
 			hi=hello+1;
-			document.cookie=hi;	
+			cookie=hi;	
 			document.getElementById("reload").style.visibility="visible";
 		} else if (attempts >= 6) {
 			alert('Sorry, you ran out of attempts. The word was: ' + word);
