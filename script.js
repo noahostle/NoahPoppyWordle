@@ -6,20 +6,17 @@ window.addEventListener('DOMContentLoaded', async function () {
 	const keyboardLetters = document.querySelectorAll('.keyboard-letter');
 	const backspaceButton = document.getElementById('backspace-button');
 	const attemptsDisplay = document.getElementById('attempts-display');
-
 	let attempts = 0;
 	let usedLetters = [];
 
 
 	if (!document.cookie){
-		document.cookie=0;
+		document.cookie="level=0";
 	}
-	
-	if (document.cookie.includes("=")) {
-		cookie = document.cookie.slice(0,-1);
-	} else {
-		cookie = document.cookie;
-	}
+
+	cookie = document.cookie.split('=')[1];
+
+
 
 	document.getElementById("level").textContent+=cookie;
 
@@ -86,8 +83,11 @@ window.addEventListener('DOMContentLoaded', async function () {
 			alert('Congratulations! You guessed the word in ' + attempts + ' attempts.');
 			hello = parseInt(cookie);
 			hi=hello+1;
-			cookie=hi;	
+
+			document.cookie=`level=${hi}`;	
+
 			document.getElementById("reload").style.visibility="visible";
+
 		} else if (attempts >= 6) {
 			alert('Sorry, you ran out of attempts. The word was: ' + word);
 			document.getElementById("reload").textContent="retry";
